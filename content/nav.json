@@ -1,0 +1,10 @@
+{
+  "header": [
+    { "label": "Tops", "href": "/c/tops" },
+    { "label": "Accessories", "href": "/c/accessories" }
+  ],
+  "footer": [
+    { "label": "About", "href": "/about" },
+    { "label": "Shipping & returns", "href": "/shipping" }
+  ]
+}

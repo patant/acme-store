@@ -1,0 +1,18 @@
+{
+  "$comment": "The category tree. catalog-sync turns this into the menu and the facet filters.",
+  "categories": [
+    {
+      "slug": "tops",
+      "title": "Tops",
+      "children": [
+        { "slug": "t-shirts", "title": "T-shirts" },
+        { "slug": "hoodies", "title": "Hoodies" }
+      ]
+    },
+    {
+      "slug": "accessories",
+      "title": "Accessories",
+      "children": [{ "slug": "caps", "title": "Caps" }]
+    }
+  ]
+}

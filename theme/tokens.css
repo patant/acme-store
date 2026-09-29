@@ -1,0 +1,27 @@
+/* The whole of the storefront's visual identity. @brink/storefront reads these and
+   nothing else, so a merchant can re-skin the site without touching a component. */
+:root {
+  --brink-bg: #fbfaf8;
+  --brink-surface: #ffffff;
+  --brink-ink: #1a1a18;
+  --brink-muted: #6b6a66;
+  --brink-rule: #ddd9d2;
+  --brink-accent: #b4451f;
+
+  --brink-font-sans: 'Inter', system-ui, sans-serif;
+  --brink-font-display: 'Fraunces', Georgia, serif;
+
+  --brink-radius: 2px;
+  --brink-measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --brink-bg: #16161a;
+    --brink-surface: #1e1e23;
+    --brink-ink: #f2f0ec;
+    --brink-muted: #9b9a95;
+    --brink-rule: #33333a;
+    --brink-accent: #e0703f;
+  }
+}
