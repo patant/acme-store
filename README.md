@@ -28,15 +28,32 @@ content/products/*.json  canonical core + an open attributes bag
 content/pages/*.mdx      R5: no CMS, this is the content
 content/taxonomy.json    category tree -> menu
 content/nav.json         header and footer
-theme/tokens.css
-app/                     thin; re-exports the package
+theme/tokens.css         the whole visual identity
+lib/content.ts           reads content/ at build time — placeholder
+app/                     start page — placeholder
 ```
 
 No skills and no MCP config live here. Those belong to the harness, not to the merchant's repo —
 a file in this repo that an agent would read as instructions is a file anyone with commit access
 can use to redirect it.
 
+## Running it
+
+```sh
+npm install
+npm run dev        # http://localhost:3000
+```
+
+The start page reads `brink.config.ts`, `content/taxonomy.json` and `content/products/*.json` from
+disk at build time and renders them. No network, no database — change a JSON file, reload, see it.
+
 ## Status
 
-`@brink/storefront` is not published yet, so `npm install` will not resolve. The dependency is
-recorded because it is the contract the template is built against, not because it works today.
+`@brink/storefront` is not published yet, so `app/` and `lib/content.ts` render the page themselves
+for now. They are placeholders, not the design: when the package lands it takes over rendering and
+both shrink back to a few lines. The parts that are real and stay are `brink.config.ts`, everything
+under `content/`, and `theme/tokens.css`.
+
+Deliberately not built yet: page routes for `content/pages/*.mdx`, and the links in `content/nav.json`
+(the start page groups products by `taxonomy.json` instead, so nothing on the page is a dead link).
+Prices and stock are absent by design — they are Brink's, not this repo's.

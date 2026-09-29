@@ -1,27 +1,30 @@
-/* The whole of the storefront's visual identity. @brink/storefront reads these and
-   nothing else, so a merchant can re-skin the site without touching a component. */
+/* The whole of the storefront's visual identity. A merchant re-skins the site by
+   editing this file — no component is touched.
+
+   Acme sells heavy cotton from a Portuguese mill into Scandinavia, so the palette is
+   taken from the material rather than from retail: unbleached cotton as the ground,
+   indigo as the ink, and the red of a selvedge line as the single accent. */
 :root {
-  --brink-bg: #fbfaf8;
-  --brink-surface: #ffffff;
-  --brink-ink: #1a1a18;
-  --brink-muted: #6b6a66;
-  --brink-rule: #ddd9d2;
-  --brink-accent: #b4451f;
+  --ground: #e6e4dc;      /* unbleached cotton, cool rather than cream */
+  --paper: #f1efe9;       /* the same cloth, one shade lighter */
+  --ink: #16212e;         /* indigo, a real hue — not a tinted black */
+  --ink-soft: #55606d;
+  --rule: #c9c6bb;
+  --selvedge: #b02a34;    /* used once per page, never as decoration */
 
-  --brink-font-sans: 'Inter', system-ui, sans-serif;
-  --brink-font-display: 'Fraunces', Georgia, serif;
-
-  --brink-radius: 2px;
-  --brink-measure: 68ch;
+  --measure: 64ch;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --step: clamp(3rem, 7vw, 5.5rem);
 }
 
+/* Indigo ground, cotton ink — the same two colours, swapped. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --brink-bg: #16161a;
-    --brink-surface: #1e1e23;
-    --brink-ink: #f2f0ec;
-    --brink-muted: #9b9a95;
-    --brink-rule: #33333a;
-    --brink-accent: #e0703f;
+    --ground: #141c26;
+    --paper: #1b2531;
+    --ink: #e6e4dc;
+    --ink-soft: #9aa4b0;
+    --rule: #2e3a48;
+    --selvedge: #e0737a;
   }
 }
