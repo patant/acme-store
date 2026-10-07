@@ -55,14 +55,11 @@ export default function Home() {
       </header>
 
       <section className="opening">
-        <p>
-          We make a short list of things, in heavy cotton, in Sweden, and we do not change
-          the list very often.
-        </p>
+        <p>Autumn Sale.</p>
         <p className="aside">
-          The price is the price. We do not run a permanent sale against an invented list
-          price, and we do not discount at the end of a season — we would rather make fewer
-          of a thing and sell them all.
+          For a few weeks, the heavy cotton pieces we make in Sweden cost less than usual.
+          We are not discounting against some list price invented for the occasion — the
+          lower price is the price, for as long as the sale runs.
         </p>
       </section>
 
