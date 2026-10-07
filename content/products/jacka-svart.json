@@ -1,0 +1,28 @@
+{
+  "slug": "jacka-svart",
+  "title": {
+    "sv-SE": "Jacka Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "categories": [
+    "ytterklader"
+  ],
+  "attributes": {
+    "color": "Svart"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/jacka-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-jacka-svart",
+    "variants": [
+      "ACME-JACKA-SVA-S",
+      "ACME-JACKA-SVA-M",
+      "ACME-JACKA-SVA-L"
+    ]
+  }
+}

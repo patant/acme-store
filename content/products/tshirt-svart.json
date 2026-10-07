@@ -1,0 +1,28 @@
+{
+  "slug": "tshirt-svart",
+  "title": {
+    "sv-SE": "T-shirt Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "categories": [
+    "overdelar"
+  ],
+  "attributes": {
+    "color": "Svart"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/tshirt-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-tshirt-svart",
+    "variants": [
+      "ACME-TSHIRT-SVA-S",
+      "ACME-TSHIRT-SVA-M",
+      "ACME-TSHIRT-SVA-L"
+    ]
+  }
+}

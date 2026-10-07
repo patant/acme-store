@@ -1,0 +1,28 @@
+{
+  "slug": "jacka-marinbla",
+  "title": {
+    "sv-SE": "Jacka Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "categories": [
+    "ytterklader"
+  ],
+  "attributes": {
+    "color": "Marinblå"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/jacka-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-jacka-marinbla",
+    "variants": [
+      "ACME-JACKA-MAR-S",
+      "ACME-JACKA-MAR-M",
+      "ACME-JACKA-MAR-L"
+    ]
+  }
+}

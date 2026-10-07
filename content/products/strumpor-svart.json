@@ -1,0 +1,28 @@
+{
+  "slug": "strumpor-svart",
+  "title": {
+    "sv-SE": "Strumpor Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "categories": [
+    "accessoarer"
+  ],
+  "attributes": {
+    "color": "Svart"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/strumpor-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-strumpor-svart",
+    "variants": [
+      "ACME-STRUMPOR-SVA-S",
+      "ACME-STRUMPOR-SVA-M",
+      "ACME-STRUMPOR-SVA-L"
+    ]
+  }
+}

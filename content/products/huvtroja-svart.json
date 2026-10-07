@@ -1,0 +1,28 @@
+{
+  "slug": "huvtroja-svart",
+  "title": {
+    "sv-SE": "Huvtröja Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "categories": [
+    "overdelar"
+  ],
+  "attributes": {
+    "color": "Svart"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/huvtroja-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-huvtroja-svart",
+    "variants": [
+      "ACME-HUVTROJA-SVA-S",
+      "ACME-HUVTROJA-SVA-M",
+      "ACME-HUVTROJA-SVA-L"
+    ]
+  }
+}

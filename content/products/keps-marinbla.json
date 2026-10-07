@@ -1,0 +1,28 @@
+{
+  "slug": "keps-marinbla",
+  "title": {
+    "sv-SE": "Keps Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "categories": [
+    "accessoarer"
+  ],
+  "attributes": {
+    "color": "Marinblå"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/keps-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-keps-marinbla",
+    "variants": [
+      "ACME-KEPS-MAR-S",
+      "ACME-KEPS-MAR-M",
+      "ACME-KEPS-MAR-L"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "tshirt-marinbla",
+  "title": {
+    "sv-SE": "T-shirt Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "categories": [
+    "overdelar"
+  ],
+  "attributes": {
+    "color": "Marinblå"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/tshirt-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-tshirt-marinbla",
+    "variants": [
+      "ACME-TSHIRT-MAR-S",
+      "ACME-TSHIRT-MAR-M",
+      "ACME-TSHIRT-MAR-L"
+    ]
+  }
+}

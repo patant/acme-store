@@ -1,0 +1,28 @@
+{
+  "slug": "huvtroja-marinbla",
+  "title": {
+    "sv-SE": "Huvtröja Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "categories": [
+    "overdelar"
+  ],
+  "attributes": {
+    "color": "Marinblå"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/huvtroja-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-huvtroja-marinbla",
+    "variants": [
+      "ACME-HUVTROJA-MAR-S",
+      "ACME-HUVTROJA-MAR-M",
+      "ACME-HUVTROJA-MAR-L"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "skjorta-svart",
+  "title": {
+    "sv-SE": "Skjorta Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "categories": [
+    "overdelar"
+  ],
+  "attributes": {
+    "color": "Svart"
+  },
+  "images": [
+    {
+      "src": "https://cdn.acme.se/skjorta-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-skjorta-svart",
+    "variants": [
+      "ACME-SKJORTA-SVA-S",
+      "ACME-SKJORTA-SVA-M",
+      "ACME-SKJORTA-SVA-L"
+    ]
+  }
+}
