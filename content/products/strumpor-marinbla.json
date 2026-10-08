@@ -1,0 +1,34 @@
+{
+  "slug": "strumpor-marinbla",
+  "title": {
+    "sv-SE": "Strumpor Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "attributes": {
+    "brand": "Acme",
+    "tags": [
+      "Accessoarer",
+      "Nyhet"
+    ],
+    "color": "Marinblå"
+  },
+  "categories": [
+    "accessoarer",
+    "strumpor"
+  ],
+  "images": [
+    {
+      "src": "https://cdn.acme.se/strumpor-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-strumpor-marinbla",
+    "variants": [
+      "ACME-STRUMPOR-MAR-S",
+      "ACME-STRUMPOR-MAR-M",
+      "ACME-STRUMPOR-MAR-L"
+    ]
+  }
+}

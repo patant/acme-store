@@ -1,0 +1,34 @@
+{
+  "slug": "keps-svart",
+  "title": {
+    "sv-SE": "Keps Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "attributes": {
+    "brand": "Acme",
+    "tags": [
+      "Accessoarer",
+      "Nyhet"
+    ],
+    "color": "Svart"
+  },
+  "categories": [
+    "accessoarer",
+    "kepsar"
+  ],
+  "images": [
+    {
+      "src": "https://cdn.acme.se/keps-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-keps-svart",
+    "variants": [
+      "ACME-KEPS-SVA-S",
+      "ACME-KEPS-SVA-M",
+      "ACME-KEPS-SVA-L"
+    ]
+  }
+}
