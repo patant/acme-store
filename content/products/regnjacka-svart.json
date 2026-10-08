@@ -1,0 +1,34 @@
+{
+  "slug": "regnjacka-svart",
+  "title": {
+    "sv-SE": "Regnjacka Svart"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är svart."
+  },
+  "attributes": {
+    "brand": "Acme",
+    "tags": [
+      "Ytterkläder",
+      "Nyhet"
+    ],
+    "color": "Svart"
+  },
+  "categories": [
+    "ytterklader",
+    "regnjackor"
+  ],
+  "images": [
+    {
+      "src": "https://cdn.acme.se/regnjacka-svart.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-regnjacka-svart",
+    "variants": [
+      "ACME-REGNJACKA-SVA-S",
+      "ACME-REGNJACKA-SVA-M",
+      "ACME-REGNJACKA-SVA-L"
+    ]
+  }
+}

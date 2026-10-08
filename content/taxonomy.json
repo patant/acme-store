@@ -1,18 +1,31 @@
 {
-  "$comment": "The category tree. catalog-sync turns this into the menu and the facet filters.",
+  "locale": "sv-SE",
+  "tsConfig": "swedish",
   "categories": [
     {
-      "slug": "tops",
-      "title": "Tops",
+      "slug": "ytterklader",
+      "title": { "sv-SE": "Ytterkläder" },
       "children": [
-        { "slug": "t-shirts", "title": "T-shirts" },
-        { "slug": "hoodies", "title": "Hoodies" }
+        { "slug": "regnjackor", "title": { "sv-SE": "Regnjackor" } },
+        { "slug": "jackor", "title": { "sv-SE": "Jackor" } }
       ]
     },
     {
-      "slug": "accessories",
-      "title": "Accessories",
-      "children": [{ "slug": "caps", "title": "Caps" }]
+      "slug": "overdelar",
+      "title": { "sv-SE": "Överdelar" },
+      "children": [
+        { "slug": "t-shirts", "title": { "sv-SE": "T-shirts" } },
+        { "slug": "huvtrojor", "title": { "sv-SE": "Huvtröjor" } },
+        { "slug": "skjortor", "title": { "sv-SE": "Skjortor" } }
+      ]
+    },
+    {
+      "slug": "accessoarer",
+      "title": { "sv-SE": "Accessoarer" },
+      "children": [
+        { "slug": "kepsar", "title": { "sv-SE": "Kepsar" } },
+        { "slug": "strumpor", "title": { "sv-SE": "Strumpor" } }
+      ]
     }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "slug": "regnjacka-marinbla",
+  "title": {
+    "sv-SE": "Regnjacka Marinblå"
+  },
+  "description": {
+    "sv-SE": "Sydd i återvunnen polyester. Färgen är marinblå."
+  },
+  "attributes": {
+    "brand": "Acme",
+    "tags": [
+      "Ytterkläder",
+      "Nyhet"
+    ],
+    "color": "Marinblå"
+  },
+  "categories": [
+    "ytterklader",
+    "regnjackor"
+  ],
+  "images": [
+    {
+      "src": "https://cdn.acme.se/regnjacka-marinblå.jpg"
+    }
+  ],
+  "brink": {
+    "productParentId": "acme-regnjacka-marinbla",
+    "variants": [
+      "ACME-REGNJACKA-MAR-S",
+      "ACME-REGNJACKA-MAR-M",
+      "ACME-REGNJACKA-MAR-L"
+    ]
+  }
+}

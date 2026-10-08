@@ -1,0 +1,22 @@
+{
+  "source": "shopify.csv",
+  "groupBy": "Handle",
+  "locale": "sv-SE",
+  "storeId": "acme",
+  "fields": [
+    { "from": "Handle", "to": "slug", "via": ["slugify"] },
+    { "from": "Title", "to": "title", "via": ["trim", "localise"] },
+    { "from": "Body (HTML)", "to": "description", "via": ["stripHtml", "localise"] },
+    { "from": "Vendor", "to": "attributes.brand", "via": ["trim"] },
+    { "from": "Type", "to": "categories", "via": ["slugify", "wrap"] },
+    { "from": "Tags", "to": "attributes.tags", "via": ["split:,"] },
+    { "from": "Option1 Name", "drop": "constant axis label ('Färg'/Color); the value is already captured per-product via Option1 Value as attributes.color" },
+    { "from": "Option1 Value", "to": "attributes.color", "via": ["trim"] },
+    { "from": "Option2 Name", "drop": "constant axis label ('Storlek'/Size); the value is already captured per-variant via Option2 Value" },
+    { "from": "Option2 Value", "to": "brink.variants[].size", "via": ["trim"] },
+    { "from": "Variant SKU", "to": "brink.variants[].sku", "via": ["trim"] },
+    { "from": "Variant Price", "to": "brink.variants[].price", "via": ["number"] },
+    { "from": "Variant Inventory Qty", "to": "brink.variants[].stock", "via": ["number"] },
+    { "from": "Image Src", "to": "images", "via": ["image"] }
+  ]
+}
