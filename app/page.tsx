@@ -60,6 +60,7 @@ export default function Home() {
       </header>
 
       <section className="opening">
+        <h2 className="headline">Fewer things, made to last.</h2>
         <p>
           We make a short list of things, in heavy cotton, in Norway, and we do not change
           the list very often.
