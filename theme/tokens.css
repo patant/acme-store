@@ -1,30 +1,30 @@
 /* The whole of the storefront's visual identity. A merchant re-skins the site by
    editing this file — no component is touched.
 
-   Acme sells heavy cotton from a Portuguese mill into Scandinavia, so the palette is
-   taken from the material rather than from retail: unbleached cotton as the ground,
-   indigo as the ink, and the red of a selvedge line as the single accent. */
+   Styled after kustom.co: near-black ink on a clean white ground, soft off-white
+   panels, hairline rules and a single pink accent. The values are an interpretation
+   of that look, not sampled from their stylesheet. */
 :root {
-  --ground: #e6e4dc;      /* unbleached cotton, cool rather than cream */
-  --paper: #f1efe9;       /* the same cloth, one shade lighter */
-  --ink: #16212e;         /* indigo, a real hue — not a tinted black */
-  --ink-soft: #55606d;
-  --rule: #c9c6bb;
-  --selvedge: #b02a34;    /* used once per page, never as decoration */
+  --ground: #ffffff;
+  --paper: #f5f4f2;       /* off-white panel, one step from the ground */
+  --ink: #0b051d;         /* near-black with a faint violet cast */
+  --ink-soft: #66626f;
+  --rule: #e4e2e7;
+  --selvedge: #d1175f;    /* the accent: deep enough to read as text on white */
 
   --measure: 64ch;
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
   --step: clamp(3rem, 7vw, 5.5rem);
 }
 
-/* Indigo ground, cotton ink — the same two colours, swapped. */
+/* Black ground, white ink, a lighter pink so the accent still reads. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ground: #141c26;
-    --paper: #1b2531;
-    --ink: #e6e4dc;
-    --ink-soft: #9aa4b0;
-    --rule: #2e3a48;
-    --selvedge: #e0737a;
+    --ground: #0b0b0d;
+    --paper: #151518;
+    --ink: #ffffff;
+    --ink-soft: #a29fab;
+    --rule: #2a2830;
+    --selvedge: #ffa8cd;
   }
 }
