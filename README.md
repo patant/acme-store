@@ -41,12 +41,14 @@ can use to redirect it.
 
 ```sh
 npm install
-npm run dev        # https://localhost:3000
+npm run dev        # http://localhost:3000
+npm run dev:https  # https://localhost:3000, needed to finish a Klarna payment
 ```
 
 The pages read `brink.config.ts`, `content/taxonomy.json` and `content/products/*.json` from disk, and
 ask Brink's Shopper API for prices and the cart. `BRINK_SHOPPER_URL` picks the Brink account; it
-defaults to dev. Dev runs on https because Klarna refuses a plain-http confirmation URL.
+defaults to dev. Klarna refuses a plain-http confirmation URL, so paying needs `dev:https` locally
+or a real https host.
 
 ## Cart and checkout
 

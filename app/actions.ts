@@ -56,7 +56,7 @@ export async function startCheckout() {
     const klarna = s.capabilities?.paymentProviders?.find((p) => p.name === 'KlarnaCheckout');
     if (!klarna) throw new Error(`Klarna is not enabled for ${s.cart.countryCode}.`);
     await c.checkouts.start({ paymentProvider: { name: klarna.name, id: klarna.id } });
-    // Klarna only accepts an https confirmation URL, hence `next dev --experimental-https`.
+    // Klarna only accepts an https confirmation URL, hence `npm run dev:https`.
     const h = await headers();
     const origin = `${h.get('x-forwarded-proto') ?? 'https'}://${h.get('host')}`;
     await c.kco.createOrder({
