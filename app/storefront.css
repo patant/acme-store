@@ -29,14 +29,31 @@ body {
 
 .wordmark {
   margin: 0;
+  color: inherit;
+  text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
   font-stretch: 125%;
   letter-spacing: -0.02em;
 }
 
+.masthead-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; align-items: baseline; }
+
 .markets { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
 .markets b { font-weight: 500; color: var(--ink); }
+.markets button {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.markets button:hover { border-bottom-color: var(--rule); }
+.markets button[aria-pressed='true'] { color: var(--ink); border-bottom-color: var(--ink); }
+
+.cart-link { font-size: 0.85rem; font-weight: 600; color: var(--ink); }
 
 /* ---- opening ----------------------------------------------------------- */
 
@@ -94,6 +111,17 @@ body {
   letter-spacing: -0.015em;
 }
 
+.garment h3 a { color: inherit; text-decoration: none; }
+.garment h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+
+.price {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.garment .price { grid-column: 2; grid-row: 1; text-align: right; }
+
 /* The one loud thing on the page: what the cloth actually weighs. */
 .weight {
   grid-column: 2;
@@ -127,6 +155,103 @@ body {
 .spec dt { color: var(--ink-soft); }
 .spec dd { margin: 0.15rem 0 0; }
 
+/* ---- product, cart, checkout ------------------------------------------- */
+
+.product, .cart, .checkout, .prose { padding: var(--step) 0; }
+
+.product h1, .cart h1, .checkout h1, .prose h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 600;
+  font-stretch: 112%;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.product .price { margin-bottom: 1.25rem; font-size: 1.5rem; }
+.product .blurb { margin-bottom: 2rem; }
+
+.buy { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; align-items: end; }
+.sizes { display: flex; gap: 0.5rem; margin: 0; padding: 0; border: 0; }
+.sizes legend { margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+.sizes input { position: absolute; opacity: 0; }
+.sizes span {
+  display: grid;
+  place-items: center;
+  min-width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-weight: 600;
+  cursor: pointer;
+}
+.sizes input:checked + span { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.sizes input:focus-visible + span { outline: 2px solid var(--selvedge); outline-offset: 3px; }
+
+/* The one action on a page that spends money, so it carries the accent. */
+.primary {
+  padding: 0.85rem 1.75rem;
+  border: 0;
+  background: var(--selvedge);
+  color: var(--paper);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary:hover { filter: brightness(1.08); }
+
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.note { max-width: var(--measure); color: var(--ink-soft); }
+.note a { color: var(--ink); }
+.problem { color: var(--ink); border-left: 3px solid var(--selvedge); padding-left: 0.75rem; }
+
+.lines { margin: 1rem 0 0; padding: 0; list-style: none; }
+.line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+}
+.line-name { font-weight: 600; }
+.line-sum { font-variant-numeric: tabular-nums; text-align: right; }
+
+.qty { display: flex; align-items: center; gap: 0.5rem; }
+.qty button {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.qty button:disabled { opacity: 0.4; cursor: default; }
+.qty output { min-width: 1.5ch; text-align: center; font-variant-numeric: tabular-nums; }
+
+.totals { margin: 0 0 2rem; padding-top: 1.25rem; border-top: 1px solid var(--ink); }
+.totals div { display: flex; justify-content: space-between; gap: 1rem; }
+.totals div:first-child { font-size: 1.25rem; font-weight: 600; }
+.totals div + div { font-size: 0.9rem; color: var(--ink-soft); }
+.totals dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+/* Klarna draws its own form on white; give it room rather than a frame. */
+.klarna { max-width: 44rem; }
+
+.prose { max-width: var(--measure); }
+.prose h2 { margin: 2rem 0 0.5rem; font-size: 1.15rem; }
+.prose p { margin: 0 0 1rem; }
+
 /* ---- colophon ---------------------------------------------------------- */
 
 .colophon {
@@ -141,4 +266,7 @@ body {
   .garment { grid-template-columns: 1fr; }
   .weight { grid-column: 1; grid-row: auto; text-align: left; }
   .weight b { font-size: 2.6rem; }
+  .garment .price { grid-column: 1; grid-row: auto; text-align: left; }
+  .line { grid-template-columns: minmax(0, 1fr) auto; }
+  .line-sum { grid-column: 1; text-align: left; }
 }

@@ -1,26 +1,15 @@
-// The start page: everything on it comes from content/ and brink.config.ts. Nothing
-// is fetched, because prices and stock are Brink's and this page is the editorial half.
-import config from '../brink.config';
-import { type Product, inCategory, products, taxonomy } from '../lib/content';
+// The start page: the copy comes from content/, and only the prices from Brink.
+import { type Product, inCategory, localize, products, taxonomy } from '../lib/content';
+import { market, money, prices } from '../lib/shopper';
 
-const defaultLocale = config.markets.find((m) => m.default)?.locale ?? config.markets[0].locale;
-
-/** Content is written as a plain string or as a locale map ({ "sv-SE": "..." }) —
- *  the mapping decides which, so a page has to accept either. */
-function localize(value: unknown): string {
-  if (typeof value === 'string') return value;
-  if (value && typeof value === 'object') {
-    const byLocale = value as Record<string, string>;
-    return byLocale[defaultLocale] ?? Object.values(byLocale)[0] ?? '';
-  }
-  return '';
-}
-
-function Garment({ p }: { p: Product }) {
-  const a = p.attributes as unknown as { brand?: string; color?: string; tags?: string[] };
+function Garment({ p, price }: { p: Product; price?: string }) {
+  const a = p.attributes;
   return (
     <article className="garment">
-      <h3>{localize(p.title)}</h3>
+      <h3>
+        <a href={`/p/${p.slug}`}>{localize(p.title)}</a>
+      </h3>
+      {price && <p className="price">{price}</p>}
       <p className="blurb">{localize(p.description)}</p>
       <dl className="spec">
         <div>
@@ -40,25 +29,24 @@ function Garment({ p }: { p: Product }) {
   );
 }
 
-export default function Home() {
+export default async function Home() {
   const all = products();
+  const m = await market();
+  // Every size of a garment costs the same, so the first variant's price stands for it.
+  const priceOf = new Map(
+    await Promise.all(
+      all.map(async (p) => {
+        const amount = (await prices(p.brink.productParentId).catch(() => null))?.get(p.brink.variants[0]);
+        return [p.slug, amount === undefined ? undefined : money(amount, m)] as const;
+      }),
+    ),
+  );
   const groups = taxonomy()
     .map((c) => ({ category: c, items: inCategory(all, c) }))
     .filter((g) => g.items.length > 0);
 
   return (
-    <div className="shell">
-      <header className="masthead">
-        <h1 className="wordmark">{config.name}</h1>
-        <p className="markets">
-          {config.markets.map((m) => (
-            <span key={m.code}>
-              <b>{m.code}</b> {m.currency}
-            </span>
-          ))}
-        </p>
-      </header>
-
+    <>
       <section className="opening">
         <p>
           We make a short list of things, in heavy cotton, in Norway, and we do not change
@@ -75,18 +63,17 @@ export default function Home() {
         <section className="group" key={category.slug}>
           <h2>{localize(category.title)}</h2>
           {items.map((p) => (
-            <Garment key={p.slug} p={p} />
+            <Garment key={p.slug} p={p} price={priceOf.get(p.slug)} />
           ))}
         </section>
       ))}
 
       <footer className="colophon">
         <p>
-          Every word and number above is read from <code>content/</code> at build time.
-          Prices and stock are not here — they live in Brink, and the storefront asks for
-          them when there is a storefront to ask.
+          Every word above is read from <code>content/</code>. The prices are not — they
+          live in Brink, per market, and the storefront asks for them on each visit.
         </p>
       </footer>
-    </div>
+    </>
   );
 }

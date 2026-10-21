@@ -41,11 +41,19 @@ can use to redirect it.
 
 ```sh
 npm install
-npm run dev        # http://localhost:3000
+npm run dev        # https://localhost:3000
 ```
 
-The start page reads `brink.config.ts`, `content/taxonomy.json` and `content/products/*.json` from
-disk at build time and renders them. No network, no database — change a JSON file, reload, see it.
+The pages read `brink.config.ts`, `content/taxonomy.json` and `content/products/*.json` from disk, and
+ask Brink's Shopper API for prices and the cart. `BRINK_SHOPPER_URL` picks the Brink account; it
+defaults to dev. Dev runs on https because Klarna refuses a plain-http confirmation URL.
+
+## Cart and checkout
+
+The cart is a Brink shopper session (`lib/shopper.ts`), kept in an httpOnly cookie and changed only
+through the server actions in `app/actions.ts`. Checkout is Klarna Checkout: `/checkout` shows
+Klarna's iframe, and Brink places the order from Klarna's push, so no code here creates orders.
+Switching market drops the cart, because a session belongs to one market.
 
 ## Status
 
@@ -54,6 +62,5 @@ for now. They are placeholders, not the design: when the package lands it takes 
 both shrink back to a few lines. The parts that are real and stay are `brink.config.ts`, everything
 under `content/`, and `theme/tokens.css`.
 
-Deliberately not built yet: page routes for `content/pages/*.mdx`, and the links in `content/nav.json`
-(the start page groups products by `taxonomy.json` instead, so nothing on the page is a dead link).
-Prices and stock are absent by design — they are Brink's, not this repo's.
+Deliberately not built yet: page routes for `content/pages/*.mdx` (only `/terms`, which Klarna needs),
+and the links in `content/nav.json`. Prices and stock are never committed here — they are Brink's.

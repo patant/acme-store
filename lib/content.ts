@@ -3,33 +3,45 @@
 // this is the piece it replaces.
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import config from '../brink.config';
 
 const dir = join(process.cwd(), 'content');
 const read = (...p: string[]) => JSON.parse(readFileSync(join(dir, ...p), 'utf8'));
 
+/** Copy is written as a plain string or as a locale map ({ "sv-SE": "..." }) — the
+ *  import mapping decides which, so readers have to accept either. */
+export type Localized = string | Record<string, string>;
+
 export type Product = {
   slug: string;
-  title: string;
-  summary: string;
-  description: string;
+  title: Localized;
+  description: Localized;
   categories: string[];
-  images: { src: string; alt: string }[];
-  attributes: {
-    material: string;
-    weight_gsm: number;
-    fit: string;
-    origin: string;
-    care: string[];
-  };
+  images: { src: string; alt?: string }[];
+  attributes: { brand?: string; color?: string; tags?: string[] };
+  /** The Brink ids. Variant ids end in the size: ACME-TSHIRT-SVA-M. */
+  brink: { productParentId: string; variants: string[] };
 };
 
-export type Category = { slug: string; title: string; children?: Category[] };
+export type Category = { slug: string; title: Localized; children?: Category[] };
 
 export const products = (): Product[] =>
   readdirSync(join(dir, 'products'))
     .filter((f) => f.endsWith('.json'))
     .map((f) => read('products', f))
-    .sort((a, b) => b.attributes.weight_gsm - a.attributes.weight_gsm);
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+
+export const bySlug = (slug: string): Product | undefined => products().find((p) => p.slug === slug);
+
+/** The size a variant id ends in, after its last dash. */
+export const size = (variantId: string) => variantId.slice(variantId.lastIndexOf('-') + 1);
+
+const defaultLocale = config.markets.find((m) => m.default)?.locale ?? config.markets[0].locale;
+
+export function localize(value: Localized | undefined): string {
+  if (typeof value === 'string') return value;
+  return value?.[defaultLocale] ?? Object.values(value ?? {})[0] ?? '';
+}
 
 export const taxonomy = (): Category[] => read('taxonomy.json').categories;
 
