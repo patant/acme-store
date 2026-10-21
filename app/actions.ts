@@ -58,7 +58,8 @@ export async function startCheckout() {
     await c.checkouts.start({ paymentProvider: { name: klarna.name, id: klarna.id } });
     // Klarna only accepts an https confirmation URL, hence `npm run dev:https`.
     const h = await headers();
-    const origin = `${h.get('x-forwarded-proto') ?? 'https'}://${h.get('host')}`;
+    // Behind a proxy (the console's preview) host is the upstream; x-forwarded-host is the shopper's.
+    const origin = `${h.get('x-forwarded-proto') ?? 'https'}://${h.get('x-forwarded-host') ?? h.get('host')}`;
     await c.kco.createOrder({
       klarna: {
         merchant_urls: { terms: `${origin}/terms`, checkout: `${origin}/checkout`, confirmation: `${origin}/confirmation` },
