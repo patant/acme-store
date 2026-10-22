@@ -49,7 +49,7 @@ export default async function Home() {
     <>
       <section className="opening">
         <p>
-          We make a short list of things, in heavy cotton, in Norway, and we do not change
+          We make a short list of things, in heavy cotton, in Sweden, and we do not change
           the list very often.
         </p>
         <p className="aside">
