@@ -1,30 +1,32 @@
 /* The whole of the storefront's visual identity. A merchant re-skins the site by
    editing this file — no component is touched.
 
-   Acme sells heavy cotton from a Portuguese mill into Scandinavia, so the palette is
-   taken from the material rather than from retail: unbleached cotton as the ground,
-   indigo as the ink, and the red of a selvedge line as the single accent. */
+   Acme 2027: workwear. Oat as the ground, spruce as the ink, and the orange of a
+   safety tag as the single accent. Signal is for the buy button only. */
 :root {
-  --ground: #e6e4dc;      /* unbleached cotton, cool rather than cream */
-  --paper: #f1efe9;       /* the same cloth, one shade lighter */
-  --ink: #16212e;         /* indigo, a real hue — not a tinted black */
-  --ink-soft: #55606d;
-  --rule: #c9c6bb;
-  --selvedge: #b02a34;    /* used once per page, never as decoration */
+  --ground: #efe8da;      /* Oat: page background */
+  --paper: #f7f3ea;       /* Linen: inputs, size chips, cards */
+  --ink: #1f3a2e;         /* Spruce: text, headings, logo */
+  --ink-soft: #6b5b4b;    /* Bark: secondary text, labels */
+  --rule: #d9cfbd;        /* Stitch: rules and borders */
+  --signal: #c4470f;      /* the buy button only; never text or decoration */
+  --on-signal: #ffffff;
 
+  --radius: 6px;
   --measure: 64ch;
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
   --step: clamp(3rem, 7vw, 5.5rem);
 }
 
-/* Indigo ground, cotton ink — the same two colours, swapped. */
+/* Forest ground, oat ink. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ground: #141c26;
-    --paper: #1b2531;
-    --ink: #e6e4dc;
-    --ink-soft: #9aa4b0;
-    --rule: #2e3a48;
-    --selvedge: #e0737a;
+    --ground: #14211b;    /* Forest */
+    --paper: #1c2d25;
+    --ink: #efe8da;       /* Oat */
+    --ink-soft: #a9b5a3;  /* Moss */
+    --rule: #2f4238;
+    --signal: #f07a45;
+    --on-signal: #14211b;
   }
 }

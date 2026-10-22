@@ -1,18 +1,24 @@
 import type { Metadata } from 'next';
-import { Archivo } from 'next/font/google';
+import { Fraunces, Work_Sans } from 'next/font/google';
 import config from '../brink.config';
 import { cart, market } from '../lib/shopper';
 import { setMarket } from './actions';
 import '../theme/tokens.css';
 import './storefront.css';
 
-// One family doing both jobs: the width axis separates display from text, which keeps
-// the page in a single voice where a second typeface would add another.
-const archivo = Archivo({
+// Fraunces for the logo, headings and product names; Work Sans for everything else.
+const fraunces = Fraunces({
   subsets: ['latin'],
-  axes: ['wdth'],
+  axes: ['opsz'],
   display: 'swap',
-  variable: '--font-archivo',
+  variable: '--font-display',
+});
+
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-text',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const [current, s] = await Promise.all([market(), cart()]);
   const count = s?.cart.items.reduce((n, i) => n + i.quantity, 0) ?? 0;
   return (
-    <html lang={current.locale} className={archivo.variable}>
+    <html lang={current.locale} className={`${fraunces.variable} ${workSans.variable}`}>
       <body>
         <div className="shell">
           <header className="masthead">

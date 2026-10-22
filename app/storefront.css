@@ -5,13 +5,13 @@ html, body { margin: 0; }
 body {
   background: var(--ground);
   color: var(--ink);
-  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-:focus-visible { outline: 2px solid var(--selvedge); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 
 .shell { max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -32,15 +32,16 @@ body {
   color: inherit;
   text-decoration: none;
   font-size: 1.5rem;
-  font-weight: 700;
-  font-stretch: 125%;
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 .masthead-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; align-items: baseline; }
 
 .markets { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
-.markets b { font-weight: 500; color: var(--ink); }
+.markets b { font-weight: 600; color: var(--ink); }
 .markets button {
   padding: 0;
   border: 0;
@@ -63,8 +64,9 @@ body {
   max-width: var(--measure);
   margin: 0;
   font-size: clamp(1.7rem, 4.2vw, 2.9rem);
-  font-weight: 500;
-  font-stretch: 112%;
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
   line-height: 1.22;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -74,8 +76,8 @@ body {
   max-width: 46ch;
   margin-top: 1.75rem;
   font-size: 1rem;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 400;
-  font-stretch: 100%;
   line-height: 1.6;
   letter-spacing: 0;
   color: var(--ink-soft);
@@ -89,7 +91,6 @@ body {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
   font-weight: 600;
-  font-stretch: 100%;
   color: var(--ink-soft);
 }
 
@@ -106,8 +107,9 @@ body {
   grid-column: 1;
   margin: 0;
   font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: 'opsz' 144;
   font-weight: 600;
-  font-stretch: 112%;
   letter-spacing: -0.015em;
 }
 
@@ -122,23 +124,23 @@ body {
 }
 .garment .price { grid-column: 2; grid-row: 1; text-align: right; }
 
-/* The one loud thing on the page: what the cloth actually weighs. */
+/* What the cloth actually weighs. Signal is kept for the buy button. */
 .weight {
   grid-column: 2;
   grid-row: 1 / span 2;
   text-align: right;
   line-height: 0.9;
-  color: var(--selvedge);
+  color: var(--ink);
 }
 .weight b {
   display: block;
   font-size: clamp(2.6rem, 8vw, 4.25rem);
-  font-weight: 700;
-  font-stretch: 125%;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
-.weight span { font-size: 0.8rem; font-weight: 500; color: var(--ink-soft); }
+.weight span { font-size: 0.8rem; font-weight: 400; color: var(--ink-soft); }
 
 .blurb { grid-column: 1; max-width: var(--measure); margin: 0; }
 
@@ -162,8 +164,9 @@ body {
 .product h1, .cart h1, .checkout h1, .prose h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(1.9rem, 5vw, 3rem);
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: 'opsz' 144;
   font-weight: 600;
-  font-stretch: 112%;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -180,24 +183,27 @@ body {
   min-width: 3rem;
   height: 3rem;
   border: 1px solid var(--rule);
+  border-radius: var(--radius);
   background: var(--paper);
   font-weight: 600;
   cursor: pointer;
 }
-.sizes input:checked + span { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-.sizes input:focus-visible + span { outline: 2px solid var(--selvedge); outline-offset: 3px; }
+.sizes input:checked + span { border: 2px solid var(--ink); }
+.sizes input:focus-visible + span { outline: 2px solid var(--signal); outline-offset: 3px; }
 
 /* The one action on a page that spends money, so it carries the accent. */
 .primary {
+  min-height: 48px;
   padding: 0.85rem 1.75rem;
   border: 0;
-  background: var(--selvedge);
-  color: var(--paper);
+  border-radius: var(--radius);
+  background: var(--signal);
+  color: var(--on-signal);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
 }
-.primary:hover { filter: brightness(1.08); }
+.primary:hover { filter: brightness(0.9); }
 
 .link {
   padding: 0;
@@ -206,13 +212,13 @@ body {
   font: inherit;
   font-size: 0.85rem;
   color: var(--ink-soft);
-  text-decoration: underline;
   cursor: pointer;
 }
+.link:hover { text-decoration: underline; }
 
 .note { max-width: var(--measure); color: var(--ink-soft); }
 .note a { color: var(--ink); }
-.problem { color: var(--ink); border-left: 3px solid var(--selvedge); padding-left: 0.75rem; }
+.problem { color: var(--ink); border-left: 2px solid var(--ink); padding-left: 0.75rem; }
 
 .lines { margin: 1rem 0 0; padding: 0; list-style: none; }
 .line {
@@ -231,6 +237,7 @@ body {
   width: 2rem;
   height: 2rem;
   border: 1px solid var(--rule);
+  border-radius: var(--radius);
   background: var(--paper);
   color: var(--ink);
   font: inherit;
@@ -249,7 +256,7 @@ body {
 .klarna { max-width: 44rem; }
 
 .prose { max-width: var(--measure); }
-.prose h2 { margin: 2rem 0 0.5rem; font-size: 1.15rem; }
+.prose h2 { margin: 2rem 0 0.5rem; font-size: 1.15rem; font-family: var(--font-display), Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
 .prose p { margin: 0 0 1rem; }
 
 /* ---- colophon ---------------------------------------------------------- */
